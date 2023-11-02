@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import MenuItem from './components/MenuItem.vue'
 
 import ChevronUp from 'vue-material-design-icons/ChevronUp.vue';
 import ChevronDown from 'vue-material-design-icons/ChevronDown.vue';
@@ -58,7 +59,7 @@ v-if="openMenu"
 >
 <ul class="text-gray-200 font-semibold text-[14px]">
   <li class="px-3 py-2.5 hover:bg-[#3E3D3D] border-b border-b-gray-600">Profile</li>
-  <li class="px-3 py-2.5 hover:bg-[#3E3D3D]">Log out</li>
+  <li class="px-3 py-2.5 hover.bg-[#3E3D3D]">Log out</li> <!-- Corregido el nombre de la clase -->
 </ul>
 </span>
     </div>
@@ -67,9 +68,16 @@ v-if="openMenu"
     id="SideNaV"
     class="h-[100%] p-6 w-[240px] fixed z-50 bg-black"
     >
-
+      <RouterLink to="/">
+        <img width="125" src="/images/icons/spotify-logo.png">
+      </RouterLink>
+      <div class="my-8">
+        <ul>
+          <RouterLink to="/">
+            <MenuItem class="ml-[1px]" :iconSize="23" name="Home" iconString="home" pageUrl="/"/>
+          </RouterLink>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
-
-
